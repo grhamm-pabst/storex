@@ -10,6 +10,10 @@ use Mix.Config
 config :storex,
   ecto_repos: [Storex.Repo]
 
+config :storex, Storex.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
 # Configures the endpoint
 config :storex, StorexWeb.Endpoint,
   url: [host: "localhost"],
