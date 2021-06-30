@@ -18,8 +18,6 @@ defmodule Storex.Clients.GetTest do
                 id: "5484b227-0f8f-4e84-ab01-41fd7c4c43dc",
                 inserted_at: _in_date,
                 name: "Grhamm Pabst",
-                password: nil,
-                password_hash: nil,
                 updated_at: _up_date
               }} = response
     end
@@ -48,8 +46,6 @@ defmodule Storex.Clients.GetTest do
                 id: "5484b227-0f8f-4e84-ab01-41fd7c4c43dc",
                 inserted_at: _in_date,
                 name: "Grhamm Pabst",
-                password: nil,
-                password_hash: nil,
                 updated_at: _up_date
               }} = response
     end
