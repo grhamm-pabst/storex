@@ -22,6 +22,10 @@ config :storex, StorexWeb.Endpoint,
   pubsub_server: Storex.PubSub,
   live_view: [signing_salt: "wYR3D4w7"]
 
+config :storex, StorexWeb.Auth.Guardian,
+  issuer: "storex",
+  secret_key: "TqC0vnzg/6HECsRKxDngfJhK/ctLWkHMBXit4sKl9OvbLnUPhA1k/AS/Ws+GNdN8"
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
