@@ -5,6 +5,10 @@ defmodule StorexWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :auth do
+    plug StorexWeb.Auth.Pipeline
+  end
+
   scope "/api", StorexWeb do
     pipe_through :api
   end

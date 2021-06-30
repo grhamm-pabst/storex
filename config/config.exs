@@ -26,6 +26,10 @@ config :storex, StorexWeb.Auth.Guardian,
   issuer: "storex",
   secret_key: "TqC0vnzg/6HECsRKxDngfJhK/ctLWkHMBXit4sKl9OvbLnUPhA1k/AS/Ws+GNdN8"
 
+config :storex, StorexWeb.Auth.Pipeline,
+  module: StorexWeb.Auth.Guardian,
+  error_handler: StorexWeb.Auth.ErrorHandler
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
