@@ -11,6 +11,8 @@ defmodule StorexWeb.Router do
 
   scope "/api", StorexWeb do
     pipe_through :api
+
+    post "/sign_in", ClientsController, :sign_in
   end
 
   # Enables LiveDashboard only for development
