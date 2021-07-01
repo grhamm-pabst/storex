@@ -6,4 +6,8 @@ defmodule Storex do
   Contexts are also responsible for managing your data, regardless
   if it comes from the database, an external API or others.
   """
+
+  alias Storex.Clients.Create, as: ClientsCreate
+
+  defdelegate create_client(params), to: ClientsCreate, as: :call
 end

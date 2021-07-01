@@ -9,4 +9,12 @@ defmodule StorexWeb.ClientsView do
       client: client
     }
   end
+
+  def render("sign_up.json", %{client: client, token: token}) do
+    %{
+      message: "Client created!",
+      token: token,
+      client: client
+    }
+  end
 end

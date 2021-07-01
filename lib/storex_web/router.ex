@@ -13,6 +13,7 @@ defmodule StorexWeb.Router do
     pipe_through :api
 
     post "/sign_in", ClientsController, :sign_in
+    post "/sign_up", ClientsController, :sign_up
   end
 
   # Enables LiveDashboard only for development
