@@ -36,4 +36,44 @@ defmodule StorexWeb.ClientsControllerTest do
       assert expected_response == response
     end
   end
+
+  describe "sign_up/2" do
+    test "when the params are valid, returns a created and authenticated client", %{conn: conn} do
+      params = build(:client_params)
+
+      response =
+        conn
+        |> post(Routes.clients_path(conn, :sign_up, params))
+        |> json_response(:created)
+
+      assert %{
+               "client" => %{
+                 "email" => "grhammpabst@email.com",
+                 "id" => _id,
+                 "name" => "Grhamm Pabst"
+               },
+               "message" => "Client created!",
+               "token" => _token
+             } = response
+    end
+
+    test "when there are invalid params, returns an error", %{conn: conn} do
+      params = %{"name" => "G", "email" => "ggmail.com", "password" => "123"}
+
+      response =
+        conn
+        |> post(Routes.clients_path(conn, :sign_up, params))
+        |> json_response(:bad_request)
+
+      expected_response = %{
+        "message" => %{
+          "email" => ["has invalid format"],
+          "name" => ["should be at least 2 character(s)"],
+          "password" => ["should be at least 6 character(s)"]
+        }
+      }
+
+      assert expected_response == response
+    end
+  end
 end
